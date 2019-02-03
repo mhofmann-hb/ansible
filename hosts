@@ -6,6 +6,8 @@ path.append("lib")
 import hosts
 
 inv = hosts.Inventory('site/site.conf',
+  ipv6_babelmesh_network = "2a06:8782:ffbb:bab0::/64",
+  ipv6_babelclient_network = "2a06:8782:ffbb:bab1::/64",
   ipv6_global_network = "2a06:8782:ffbb:1337::/64",
   ipv6_uplink_network = "2a06:8782:ffbb::/64",
   icvpn_ipv4_network = "10.207.0.196/16",
@@ -23,6 +25,12 @@ grp.host(2, "vpn02.bremen.freifunk.net", exit_ipv4="gre")
 grp.host(3, "vpn03.bremen.freifunk.net", exit_ipv4="default", exit_ipv4_interface="eth1", exit_ipv6_remote=False, exit_ipv6_interface="eth1")
 grp.host(5, "vpn05.bremen.freifunk.net", exit_ipv4="gre")
 grp.host(6, "vpn06.bremen.freifunk.net", exit_ipv4="default", exit_ipv4_interface="eth0")
+
+grp = inv.group("babelservers",
+  babel=True,
+  firewall_enabled=True,
+)
+grp.host(7, "ffhb.h.sum7.eu")
 
 grp = inv.group("eventsserver")
 grp.host(0, "mgmt.bremen.freifunk.net")
