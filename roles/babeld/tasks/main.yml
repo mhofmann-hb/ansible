@@ -1,5 +1,5 @@
-#- name: Add repository key for babeld and utils
-#  apt_key: keyserver="{{ pgp_keyserver }}" id="{{babeld_repository_key}}"
+- name: Add repository key for babeld and utils
+  apt_key: keyserver="{{ pgp_keyserver }}" id="{{babeld_repository_key}}"
 
 - name: Add repository for babeld and utils
   apt_repository: repo="deb {{babeld_repository}}"
