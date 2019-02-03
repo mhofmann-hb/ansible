@@ -4,7 +4,7 @@
     mesh_announce_git_root: https://github.com/FreifunkBremen/mesh-announce
     mesh_announce_git_commit: babel
   roles:
-  #- { role: etckeeper-pre, tags: [etckeeper-pre] }
+  - { role: etckeeper-pre, tags: [etckeeper-pre] }
   - { role: apt, tags: [apt] }
   - { role: openssh, tags: [openssh] }
   - { role: rkhunter, tags: [rkhunter] }
